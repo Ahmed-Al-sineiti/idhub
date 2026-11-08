@@ -1,0 +1,153 @@
+.
+├── dev.mjs
+├── faten-dalah-site
+│   ├── app
+│   │   ├── brand.css
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── About.module.css
+│   │   ├── About.tsx
+│   │   ├── BrandIcon.tsx
+│   │   ├── Clients.module.css
+│   │   ├── Clients.tsx
+│   │   ├── FloatingUI.module.css
+│   │   ├── FloatingUI.tsx
+│   │   ├── Footer.module.css
+│   │   ├── Footer.tsx
+│   │   ├── Header.module.css
+│   │   ├── Header.tsx
+│   │   ├── Hero.module.css
+│   │   ├── Hero.tsx
+│   │   ├── Identity.module.css
+│   │   ├── Identity.tsx
+│   │   ├── Media.module.css
+│   │   ├── Media.tsx
+│   │   ├── Services.module.css
+│   │   ├── Services.tsx
+│   │   ├── Testimonials.module.css
+│   │   ├── Testimonials.tsx
+│   │   ├── Works.module.css
+│   │   └── Works.tsx
+│   ├── data
+│   │   └── site.ts
+│   ├── .gitignore
+│   ├── next.config.mjs
+│   ├── next-env.d.ts
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   │   └── brand
+│   │       └── logo.png
+│   ├── README.md
+│   └── tsconfig.json
+├── .gitignore
+├── hub
+│   ├── AGENTS.md
+│   ├── app
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── page.module.css
+│   │   ├── page.tsx
+│   │   ├── [site]
+│   │   │   └── page.tsx
+│   │   └── site.css
+│   ├── components
+│   │   └── site
+│   │       ├── About.module.css
+│   │       ├── About.tsx
+│   │       ├── BrandIcon.tsx
+│   │       ├── Clients.module.css
+│   │       ├── Clients.tsx
+│   │       ├── FloatingUI.module.css
+│   │       ├── FloatingUI.tsx
+│   │       ├── Footer.module.css
+│   │       ├── Footer.tsx
+│   │       ├── Header.module.css
+│   │       ├── Header.tsx
+│   │       ├── Hero.module.css
+│   │       ├── Hero.tsx
+│   │       ├── Identity.module.css
+│   │       ├── Identity.tsx
+│   │       ├── Media.module.css
+│   │       ├── Media.tsx
+│   │       ├── Services.module.css
+│   │       ├── Services.tsx
+│   │       ├── Testimonials.module.css
+│   │       ├── Testimonials.tsx
+│   │       ├── Works.module.css
+│   │       └── Works.tsx
+│   ├── .gitignore
+│   ├── lib
+│   │   └── site.ts
+│   ├── next.config.mjs
+│   ├── next-env.d.ts
+│   ├── package.json
+│   ├── public
+│   │   └── sites
+│   │       ├── almousa
+│   │       ├── ashwaq
+│   │       └── faten
+│   ├── README.md
+│   ├── scripts
+│   │   └── generate-sites.mjs
+│   ├── sites
+│   │   ├── almousa
+│   │   │   └── site.ts
+│   │   ├── ashwaq
+│   │   │   └── site.ts
+│   │   ├── faten
+│   │   │   └── site.ts
+│   │   └── index.ts
+│   └── tsconfig.json
+├── package.json
+├── package-lock.json
+├── README.md
+├── structure.txt
+├── wstudio.json
+└── wstudio-site
+    ├── app
+    │   ├── brand.css
+    │   ├── globals.css
+    │   ├── layout.tsx
+    │   └── page.tsx
+    ├── components
+    │   ├── About.module.css
+    │   ├── About.tsx
+    │   ├── BrandIcon.tsx
+    │   ├── Clients.module.css
+    │   ├── Clients.tsx
+    │   ├── FloatingUI.module.css
+    │   ├── FloatingUI.tsx
+    │   ├── Footer.module.css
+    │   ├── Footer.tsx
+    │   ├── Header.module.css
+    │   ├── Header.tsx
+    │   ├── Hero.module.css
+    │   ├── Hero.tsx
+    │   ├── Identity.module.css
+    │   ├── Identity.tsx
+    │   ├── Media.module.css
+    │   ├── Media.tsx
+    │   ├── Services.module.css
+    │   ├── Services.tsx
+    │   ├── Testimonials.module.css
+    │   ├── Testimonials.tsx
+    │   ├── Works.module.css
+    │   └── Works.tsx
+    ├── data
+    │   └── site.ts
+    ├── .gitignore
+    ├── next.config.mjs
+    ├── package.json
+    ├── package-lock.json
+    ├── public
+    │   ├── brand
+    │   │   └── wstudio.png
+    │   └── images
+    │       └── clients
+    ├── README.md
+    └── tsconfig.json
+
+31 directories, 120 files

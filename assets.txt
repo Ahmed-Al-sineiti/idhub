@@ -1,0 +1,21 @@
+hub/public/sites
+├── almousa
+│   ├── brand
+│   │   └── logo.png
+│   └── images
+│       ├── lounge.jpg
+│       └── projects
+├── ashwaq
+│   ├── brand
+│   │   └── logo.png
+│   └── images
+│       ├── identity.jpg
+│       └── projects
+└── faten
+    ├── brand
+    │   └── logo.png
+    └── images
+        ├── identity.jpg
+        └── projects
+
+13 directories, 6 files

@@ -4,12 +4,14 @@
 import type { SiteData } from "@/lib/site";
 import { site as site0 } from "./almousa/site";
 import { site as site1 } from "./ashwaq/site";
-import { site as site2 } from "./faten/site";
+import { site as site2 } from "./deemah/site";
+import { site as site3 } from "./faten/site";
 
 export const sites: Record<string, SiteData> = {
   "almousa": site0,
   "ashwaq": site1,
-  "faten": site2,
+  "deemah": site2,
+  "faten": site3,
 };
 
 export const siteList = Object.entries(sites).map(([slug, site]) => ({ slug, site }));
