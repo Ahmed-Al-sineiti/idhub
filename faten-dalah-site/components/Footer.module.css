@@ -1,0 +1,258 @@
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 19.9px;
+  padding: 176.4px var(--gutter) 29.1px;
+  background: var(--footer-bg);
+  color: var(--text);
+}
+
+.reveal {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 170px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.reveal svg {
+  display: block;
+  width: 100%;
+  height: 95.2px;
+  fill: var(--reveal-bg);
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14.55px;
+  text-align: center;
+  margin-bottom: -0.3px;
+}
+
+.ctaEyebrow {
+  color: var(--accent-soft);
+}
+
+.ctaTitle {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31.2px;
+}
+
+.ctaButton {
+  padding: 12.5px 0 36.27px;
+}
+
+.grid {
+  display: flex;
+  gap: 14.5px;
+  width: 100%;
+  padding-top: 29.12px;
+  border-top: 1px solid var(--line);
+}
+
+.col {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+  text-align: center;
+}
+
+.colTitle {
+  font-weight: 800;
+  font-size: 11.6px;
+  line-height: 21.7px;
+  margin-bottom: 1px;
+}
+
+.whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14.6px;
+  line-height: 20.4px;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.whatsapp:hover,
+.email:hover {
+  color: var(--text);
+}
+
+.email {
+  padding-top: 12.55px;
+  font-size: 14.6px;
+  line-height: 20.4px;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.branch {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  align-self: stretch;
+  font-size: 14.6px;
+  line-height: 20.4px;
+  color: var(--muted);
+}
+
+.zip {
+  padding: 13.54px 0 14.55px;
+}
+
+.sep {
+  padding-top: 12.09px;
+  border-top: 1px solid var(--line);
+}
+
+.zipLast {
+  padding-top: 13.54px;
+  padding-bottom: 14.54px;
+}
+
+.social {
+  display: flex;
+  direction: ltr;
+  justify-content: center;
+  gap: 10.2px;
+  margin-top: 10.2px;
+}
+
+.social a {
+  display: grid;
+  place-items: center;
+  width: 33.5px;
+  height: 33.5px;
+  border: 1px solid var(--line);
+  border-radius: 16.74px;
+  color: var(--text);
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.social a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--brand-dark);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 9.21px 0;
+}
+
+.appLabel {
+  margin-bottom: 10.92px;
+  font-weight: 700;
+  font-size: 9.9px;
+  line-height: 18.6px;
+  letter-spacing: 1.19px;
+  text-transform: uppercase;
+  opacity: 0.92;
+}
+
+.appLinks {
+  display: flex;
+  direction: ltr;
+  justify-content: center;
+  gap: 8.7px;
+}
+
+.appLinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36.2px;
+  padding: 7.28px 13.104px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 11.9px;
+  line-height: 11.9px;
+  color: var(--text);
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.appLinks a svg {
+  width: 19.6px;
+  padding: 2px;
+}
+
+.appLinks a:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.lang {
+  display: inline-flex;
+  direction: ltr;
+  align-items: center;
+  gap: 25.4px;
+  height: 47.5px;
+  padding: 8.736px 14.56px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-alt);
+}
+
+.chevron {
+  width: 8px;
+  font-size: 14.6px;
+  line-height: 14.6px;
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.langText {
+  font-weight: 700;
+  font-size: 12.4px;
+  line-height: 14.3px;
+}
+
+.flag {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 28px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 9.9px;
+  line-height: 9.9px;
+}
+
+.copyright {
+  align-self: stretch;
+  margin-top: 23.8px;
+  padding-top: 20.82px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 11px;
+  line-height: 15.4px;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .footer {
+    padding-top: 140px;
+  }
+  .grid {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .appLinks {
+    flex-wrap: wrap;
+  }
+}

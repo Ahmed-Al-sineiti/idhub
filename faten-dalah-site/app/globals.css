@@ -1,0 +1,191 @@
+/* ألوان البراند في app/brand.css. الملف ده بيحسب منها كل الدرجات، فمتعدّلش الألوان هنا. */
+:root {
+  --bg: var(--brand-dark);
+  --bg-deep: color-mix(in srgb, var(--brand-dark) 60%, #000);
+  --panel: color-mix(in srgb, var(--brand-dark) 96.5%, var(--brand-light));
+  --footer-bg: color-mix(in srgb, var(--brand-dark) 92.2%, var(--brand-light));
+  --cream: var(--brand-light);
+  --text: var(--brand-light);
+  --on-media: var(--brand-light);
+  --text-88: color-mix(in srgb, var(--text) 88%, transparent);
+  --text-74: color-mix(in srgb, var(--text) 74%, transparent);
+  --text-68: color-mix(in srgb, var(--text) 68%, transparent);
+  --text-52: color-mix(in srgb, var(--text) 52%, transparent);
+  --muted: var(--brand-muted);
+  --accent: var(--brand-accent);
+  --accent-soft: var(--brand-accent-soft);
+  --accent-18: color-mix(in srgb, var(--accent) 18%, transparent);
+  --gold: var(--brand-secondary);
+  --gold-76: color-mix(in srgb, var(--gold) 76%, transparent);
+  --brown: var(--brand-on-light);
+  --ink: color-mix(in srgb, var(--brand-dark) 80%, #000);
+  --whatsapp: #0bb526;
+  --line: color-mix(in srgb, var(--text) 13%, transparent);
+  --line-strong: color-mix(in srgb, var(--text) 18%, transparent);
+  --card: color-mix(in srgb, var(--text) 4%, transparent);
+  --btn-bg: color-mix(in srgb, var(--brand-dark) 62%, transparent);
+  --header-bg: color-mix(in srgb, var(--brand-dark) 82%, transparent);
+  --reveal-bg: var(--brand-dark);
+
+  --font: "Cairo", system-ui, sans-serif;
+  --font-alt: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --gutter: 96px;
+  --container: 1200px;
+}
+
+/* الوضع الفاتح من زرار الشمس/القمر */
+:root[data-theme="light"] {
+  --bg: var(--brand-light);
+  --panel: color-mix(in srgb, var(--brand-light) 94%, var(--brand-dark));
+  --footer-bg: color-mix(in srgb, var(--brand-light) 89%, var(--brand-dark));
+  --text: var(--brand-dark);
+  --muted: color-mix(in srgb, var(--brand-dark) 62%, var(--brand-light));
+  --header-bg: color-mix(in srgb, var(--brand-light) 82%, transparent);
+  --reveal-bg: var(--brand-light);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ===== عناصر مشتركة ===== */
+
+/* العنوان الصغير اللي فوق كل سكشن */
+.eyebrow {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 11.1px;
+  line-height: 15.5px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+/* النص المفرّغ الكبير اللي ورا العناوين */
+.outline-text {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--stroke, var(--accent));
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* الزرار النصي اللي جنبه دايرة صغيرة */
+.ring-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14.55px;
+  font-weight: 600;
+  font-size: 16.5px;
+  line-height: 30.9px;
+  color: var(--text-88);
+  transition: color 0.25s ease;
+}
+
+.ring-link::before {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent);
+  border-radius: 7px;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.ring-link:hover {
+  color: var(--accent);
+}
+
+.ring-link:hover::before {
+  background: var(--accent);
+  transform: scale(1.15);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --gutter: 48px;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --gutter: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

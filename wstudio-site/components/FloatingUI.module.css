@@ -1,0 +1,158 @@
+.theme {
+  position: fixed;
+  top: 96px;
+  left: 18px;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  color: var(--text);
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.theme:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* شريط السوشيال على الشمال */
+.rail {
+  position: fixed;
+  left: 23.3px;
+  bottom: 101px;
+  z-index: 40;
+  width: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 19.6px;
+  mix-blend-mode: normal;
+}
+
+.railIcons {
+  display: flex;
+  flex-direction: column;
+  gap: 12.4px;
+}
+
+.railIcons a {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 16.02px;
+  color: var(--on-media);
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.railIcons a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.railLine {
+  width: 1px;
+  height: 72.8px;
+  background: color-mix(in srgb, var(--on-media) 52%, transparent);
+}
+
+.railText {
+  writing-mode: vertical-rl;
+  font-weight: 700;
+  font-size: 11.6px;
+  line-height: 16.3px;
+  color: var(--on-media);
+  text-transform: uppercase;
+}
+
+:root[data-theme="light"] .railIcons a,
+:root[data-theme="light"] .railText {
+  color: var(--brand-dark);
+}
+
+:root[data-theme="light"] .railLine {
+  background: color-mix(in srgb, var(--brand-dark) 40%, transparent);
+}
+
+/* زرار الرجوع لفوق */
+.top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 40;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  border-radius: 25px;
+  color: var(--ink);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background-color 0.25s ease;
+}
+
+.topVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.top:hover {
+  background: var(--accent-soft);
+}
+
+/* الكيرسر */
+.cursor,
+.cursorDot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  display: none;
+}
+
+.hasCursor .cursor,
+.hasCursor .cursorDot {
+  display: block;
+}
+
+.cursor {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--accent);
+  border-radius: 18px;
+  transition: width 0.25s ease, height 0.25s ease, margin 0.25s ease, background-color 0.25s ease;
+}
+
+.cursorHover {
+  width: 56px;
+  height: 56px;
+  margin: -10px 0 0 -10px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.cursorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .rail {
+    display: none;
+  }
+  .theme {
+    top: auto;
+    bottom: 96px;
+    left: 20px;
+  }
+}
