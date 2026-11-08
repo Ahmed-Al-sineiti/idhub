@@ -1,0 +1,215 @@
+.works {
+  position: relative;
+  background: var(--bg);
+}
+
+.sticky {
+  direction: ltr;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.track {
+  display: flex;
+  direction: ltr;
+  align-items: center;
+  gap: 20.4px;
+  padding: 0 var(--gutter);
+  will-change: transform;
+}
+
+.intro {
+  flex: none;
+  width: 761.1px;
+  padding-right: 224.12px;
+  display: flex;
+  align-items: center;
+}
+
+.introTitle {
+  direction: rtl;
+  font-size: 123.8px;
+  line-height: 105.2px;
+  --stroke: var(--accent);
+  text-align: left;
+}
+
+.project {
+  position: relative;
+  flex: none;
+  width: 814px;
+  height: 516px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  direction: rtl;
+}
+
+/* الكارت الأول نازل شوية زي التصميم */
+.offset {
+  transform: translateY(58.3px);
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: var(--bg-deep);
+}
+
+.image {
+  opacity: 0.72;
+  transition: transform 0.8s ease, opacity 0.4s ease;
+}
+
+.project:hover .image {
+  transform: scale(1.04);
+  opacity: 0.85;
+}
+
+.posterOverlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.61px;
+  padding: 18.928px;
+  direction: ltr;
+  align-items: flex-start;
+  background: linear-gradient(180deg, rgba(6, 6, 6, 0.04) 0%, rgba(6, 6, 6, 0.76) 100%);
+  font-family: var(--font-alt);
+  font-weight: 700;
+  color: var(--on-media);
+}
+
+.posterOverlay strong {
+  font-size: 14.6px;
+  line-height: 16.8px;
+}
+
+.posterOverlay small {
+  font-size: 9.9px;
+  line-height: 11.4px;
+  color: color-mix(in srgb, var(--on-media) 68%, transparent);
+}
+
+/* معلومات المشروع فوق الصورة */
+.info {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5.1px;
+  padding: 20.384px;
+  text-align: left;
+  pointer-events: none;
+  z-index: 1;
+  isolation: isolate;
+}
+
+.info::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 416.5px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.86) 100%);
+  z-index: -1;
+}
+
+.info > * {
+  align-self: stretch;
+  direction: rtl;
+  text-align: left;
+}
+
+.number {
+  font-weight: 900;
+  font-size: 14.6px;
+  line-height: 27.4px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.category {
+  padding-top: 20.1px;
+  font-size: 14.6px;
+  line-height: 20.4px;
+  color: color-mix(in srgb, var(--on-media) 74%, transparent);
+}
+
+.name {
+  padding-bottom: 9.45px;
+  font-weight: 700;
+  font-size: 39px;
+  line-height: 37px;
+  color: var(--on-media);
+}
+
+.info > .view {
+  align-self: flex-end;
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  border: 1px solid var(--gold-76);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 14.6px;
+  line-height: 27.4px;
+  color: var(--accent);
+  text-transform: uppercase;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.info > .view:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--brand-dark);
+}
+
+@media (max-width: 900px) {
+  .works {
+    height: auto !important;
+  }
+  .sticky {
+    position: static;
+    height: auto;
+    min-height: 0;
+    padding: 64px 0;
+  }
+  .track {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    width: 100%;
+    transform: none !important;
+  }
+  .intro {
+    width: auto;
+    padding: 0;
+    justify-content: flex-end;
+  }
+  .introTitle {
+    font-size: 64px;
+    line-height: 1;
+  }
+  .project {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 814 / 516;
+  }
+  .offset {
+    transform: none;
+  }
+  .name {
+    font-size: 26px;
+    line-height: 30px;
+  }
+}
