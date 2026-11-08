@@ -4,7 +4,7 @@ import type { Contact, Project, ServiceItem, SiteData } from "@/lib/site";
 
 const brand = {
   name: "DSSPACE",
-  logo: "/sites/deemah/brand/logo.png",
+  logo: "/sites/deemah/brand/deemah.png",
   logoWidth: 60,
   logoHeight: 60,
   title: "ديمة الحسن | DSSPACE تصميم داخلي",
