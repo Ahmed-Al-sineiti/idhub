@@ -51,6 +51,8 @@ export type Contact = {
 };
 
 export type SiteData = {
+  // لو true، الموقع يبدأ داكن دايمًا ويتجاهل أي وضع فاتح محفوظ.
+  startDark?: boolean;
   brand: {
     name: string;
     logo: string;

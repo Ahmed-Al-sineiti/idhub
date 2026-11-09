@@ -36,7 +36,7 @@ export default function Footer({ contact }: { contact: Contact }) {
           {contact.phone ? (
             <a href={`tel:${contact.phone.replace(/\s+/g, "")}`} className={styles.whatsapp}>
               <Phone size={14.6} strokeWidth={1.9} />
-              {contact.phone}
+              <bdi dir="ltr">{contact.phone}</bdi>
             </a>
           ) : null}
           {social.instagram && !contact.email ? (
