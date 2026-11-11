@@ -7,13 +7,9 @@ import { site as site1 } from "./ashwaq/site";
 import { site as site2 } from "./deemah/site";
 import { site as site3 } from "./faten/site";
 import { site as site4 } from "./ghaidaa/site";
-<<<<<<< HEAD
 import { site as site5 } from "./lena/site";
 import { site as site6 } from "./maged/site";
-=======
-import { site as site5 } from "./maged/site";
-import { site as site6 } from "./sara/site";
->>>>>>> 2d2aea5e8165f18696c88480828837ccd5019813
+import { site as site7 } from "./sara/site";
 
 export const sites: Record<string, SiteData> = {
   "almousa": site0,
@@ -21,13 +17,9 @@ export const sites: Record<string, SiteData> = {
   "deemah": site2,
   "faten": site3,
   "ghaidaa": site4,
-<<<<<<< HEAD
   "lena": site5,
   "maged": site6,
-=======
-  "maged": site5,
-  "sara": site6,
->>>>>>> 2d2aea5e8165f18696c88480828837ccd5019813
+  "sara": site7,
 };
 
 export const siteList = Object.entries(sites).map(([slug, site]) => ({ slug, site }));
