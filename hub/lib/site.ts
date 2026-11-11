@@ -1,5 +1,8 @@
 import type { CSSProperties } from "react";
 
+// لون واحد بس وبيطلعلك الثيم كامل
+export { generateTheme } from "./generate-theme";
+
 // شكل بيانات أي موقع عميل. أي موقع جديد بيتكتب بنفس الشكل ده.
 export type SiteTheme = {
   accent: string;
