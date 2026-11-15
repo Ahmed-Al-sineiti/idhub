@@ -5,13 +5,13 @@ import type { Contact, Project, ServiceItem, SiteData } from "@/lib/site";
 // المحتوى والوسائط من أصول فولدر "huda" وحساب @hudaaa-1.
 
 const brand = {
-  name: "هدى الحصيني",
+  name: "High Roof — هدى الحصيني",
   logo: "/sites/huda/brand/logo.webp",
   logoWidth: 60,
   logoHeight: 60,
-  title: "م. هدى الحصيني | تصميم داخلي — الرياض",
+  title: "High Roof | م. هدى الحصيني — تصميم داخلي وتأثيث بالرياض",
   description:
-    "م. هدى الحصيني، مصممة داخلية في الرياض. تصميم داخلي وتأثيث وديكور بلمسات هادئة وتفاصيل مختارة بعناية، لمساحات تشبه أصحابها.",
+    "High Roof، استوديو م. هدى الحصيني للتصميم الداخلي والتأثيث في الرياض. مساحات هادئة بتفاصيل مختارة وخامات طبيعية، تشبه أصحابها.",
 };
 
 const theme = {
@@ -53,9 +53,9 @@ const projects: Project[] = [
 ];
 
 const about = {
-  eyebrow: "مصممة داخلية — الرياض",
+  eyebrow: "High Roof — الرياض",
   title: "مساحات تشبه أصحابها",
-  text: "م. هدى الحصيني، مصممة داخلية في الرياض. أؤمن أن التصميم الجيد يبدأ من الاستماع: لطريقة عيشك، للضوء الذي تحبه، وللتفاصيل التي تمنحك الراحة. من الفكرة والتوزيع إلى اختيار الأثاث والخامات، أرافقك خطوة بخطوة حتى تصبح المساحة امتداداً لذوقك.",
+  text: "م. هدى الحصيني، مؤسسة High Roof للتصميم الداخلي في الرياض. أؤمن أن التصميم الجيد يبدأ من الاستماع: لطريقة عيشك، للضوء الذي تحبه، وللتفاصيل التي تمنحك الراحة. من الفكرة والتوزيع إلى اختيار الأثاث والخامات، أرافقك خطوة بخطوة حتى تصبح المساحة امتداداً لذوقك.",
 };
 
 const services = {
@@ -86,7 +86,7 @@ const services = {
 
 const identity = {
   eyebrow: "فلسفتنا في التصميم",
-  outline: "HUDA",
+  outline: "HIGH ROOF",
   title: "هدوء، دفء، وتفاصيل مختارة",
   text: "نبدأ من الإضاءة الطبيعية والألوان الترابية، ثم نضيف الخشب والرخام واللمسات الخضراء. النتيجة مساحة هادئة لا تتصدّر المشهد، لكنها تُشعِر من يدخلها بالراحة.",
   points: [
@@ -96,7 +96,7 @@ const identity = {
     "الرياض، مع خدمة الطلبات عن بُعد.",
   ],
   image: "/sites/huda/video/living.mp4",
-  imageLabel: "HUDA ALHUSAINI",
+  imageLabel: "HIGH ROOF",
 };
 
 const testimonials = {
@@ -131,7 +131,7 @@ const contact: Contact = {
     googlePlay: "",
     appStore: "",
   },
-  copyright: `© ${new Date().getFullYear()} Huda Alhusaini Interior Design. جميع الحقوق محفوظة`,
+  copyright: `© ${new Date().getFullYear()} High Roof Interior Design & Furnishing. جميع الحقوق محفوظة`,
 };
 
 const nav = [
