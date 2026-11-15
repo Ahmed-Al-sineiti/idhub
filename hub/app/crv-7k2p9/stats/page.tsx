@@ -71,8 +71,41 @@ function fmt(d: Date) {
   return d.toLocaleString("ar-EG", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit", timeZone: "Africa/Cairo" });
 }
 
-export default async function Stats() {
-  const rows = await loadRows();
+type Search = { country?: string; device?: string; sort?: string };
+
+// الفلاتر: البلد (الافتراضي السعودية)، نوع الجهاز، والترتيب
+const COUNTRY_TABS = [
+  { key: "SA", label: "السعودية" },
+  { key: "EG", label: "مصر (إحنا)" },
+  { key: "all", label: "الكل" },
+];
+const DEVICE_TABS = [
+  { key: "all", label: "كل الأجهزة" },
+  { key: "mobile", label: "موبايل" },
+  { key: "desktop", label: "كمبيوتر" },
+];
+const SORT_TABS = [
+  { key: "views", label: "الأكثر زيارة" },
+  { key: "visitors", label: "الأكثر أجهزة" },
+  { key: "recent", label: "آخر زيارة" },
+];
+
+export default async function Stats({ searchParams }: { searchParams: Promise<Search> }) {
+  const sp = await searchParams;
+  const country = sp.country ?? "SA";
+  const device = sp.device ?? "all";
+  const sort = sp.sort ?? "views";
+  const all = await loadRows();
+  // الفلترة بالجهاز والبلد على مستوى الجهاز: أحداث الخروج والواتساب بتتبع نفس الجهاز
+  const rows =
+    all &&
+    all.filter(
+      (x) => (country === "all" || x[5] === country) && (device === "all" || x[4] === device),
+    );
+  const link = (k: keyof Search, v: string) => {
+    const q = new URLSearchParams({ country, device, sort, [k]: v });
+    return `?${q.toString()}`;
+  };
   const names = Object.fromEntries(siteList.map(({ slug, site }) => [slug, site.brand.name]));
 
   const stats = siteList.map(({ slug }) => {
@@ -100,7 +133,28 @@ export default async function Stats() {
       places: [...countries.entries()].map(([p, v]) => `${p} (${v.size})`).join("، "),
       last,
     };
-  }).sort((a, b) => (b.last?.getTime() ?? 0) - (a.last?.getTime() ?? 0));
+  }).sort((a, b) =>
+    sort === "recent"
+      ? (b.last?.getTime() ?? 0) - (a.last?.getTime() ?? 0)
+      : sort === "visitors"
+        ? b.visitors - a.visitors || b.views - a.views
+        : b.views - a.views || b.visitors - a.visitors,
+  );
+
+  const totals = {
+    visitors: new Set((rows ?? []).filter((x) => x[3] === "view").map((x) => x[2])).size,
+    views: (rows ?? []).filter((x) => x[3] === "view").length,
+    whatsapp: (rows ?? []).filter((x) => x[3] === "whatsapp").length,
+  };
+  const chip = (active: boolean): React.CSSProperties => ({
+    padding: "7px 14px",
+    borderRadius: 999,
+    border: `1px solid ${active ? "var(--accent)" : "var(--line)"}`,
+    background: active ? "rgba(190, 111, 91, 0.14)" : "var(--panel)",
+    color: active ? "var(--text)" : "var(--muted)",
+    fontSize: 13,
+    fontWeight: 700,
+  });
 
   const th: React.CSSProperties = { textAlign: "right", padding: "10px 12px", color: "var(--muted)", fontSize: 13, borderBottom: "1px solid var(--line)", whiteSpace: "nowrap" };
   const td: React.CSSProperties = { padding: "12px", borderBottom: "1px solid var(--line)", fontSize: 14, verticalAlign: "top" };
@@ -114,6 +168,27 @@ export default async function Stats() {
         <h1 className={styles.title}>الإحصائيات</h1>
         <p className={styles.sub}>زيارات الفريق مش محسوبة. كل جهاز بيتحسب زائر واحد.</p>
       </header>
+
+      {rows !== null ? (
+        <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
+          {[
+            { k: "country" as const, cur: country, tabs: COUNTRY_TABS },
+            { k: "device" as const, cur: device, tabs: DEVICE_TABS },
+            { k: "sort" as const, cur: sort, tabs: SORT_TABS },
+          ].map((g) => (
+            <div key={g.k} style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              {g.tabs.map((tab) => (
+                <a key={tab.key} href={link(g.k, tab.key)} style={chip(g.cur === tab.key)}>
+                  {tab.label}
+                </a>
+              ))}
+            </div>
+          ))}
+          <p className={styles.sub} style={{ margin: "6px 0 0" }}>
+            {totals.visitors} جهاز مختلف · {totals.views} زيارة · {totals.whatsapp} دوسة واتساب
+          </p>
+        </div>
+      ) : null}
 
       {rows === null ? (
         <p className={styles.empty}>
