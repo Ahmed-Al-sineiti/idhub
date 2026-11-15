@@ -6,7 +6,15 @@ import Media from "./Media";
 import styles from "./Works.module.css";
 
 // السكشن بيثبت والمشاريع بتتحرك بالعرض وانت بتنزل بالسكرول
-export default function Works({ brand, projects }: { brand: SiteData["brand"]; projects: Project[] }) {
+export default function Works({
+  brand,
+  projects,
+  portrait = false,
+}: {
+  brand: SiteData["brand"];
+  projects: Project[];
+  portrait?: boolean;
+}) {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [distance, setDistance] = useState(0);
@@ -60,7 +68,7 @@ export default function Works({ brand, projects }: { brand: SiteData["brand"]; p
       style={{ height: distance ? `calc(100vh + ${distance}px)` : undefined }}
     >
       <div className={styles.sticky}>
-        <div ref={trackRef} className={styles.track}>
+        <div ref={trackRef} className={`${styles.track} ${portrait ? styles.portrait : ""}`}>
           <article className={styles.intro}>
             <h2 className={`outline-text ${styles.introTitle}`}>مشاريعنا</h2>
           </article>

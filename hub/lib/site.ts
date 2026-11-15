@@ -67,6 +67,13 @@ export type SiteData = {
   greetName?: string;
   // لو true، الموقع يبدأ داكن دايمًا ويتجاهل أي وضع فاتح محفوظ.
   startDark?: boolean;
+  // اختياري: تخصيص الهيرو للصور الفاتحة. القيم الافتراضية هي نفس ستايل القالب.
+  hero?: {
+    titleColor?: string;
+    scrim?: string;
+  };
+  // اختياري: كروت المشاريع بشكل بورتريه، مناسب للفيديوهات الرأسية.
+  worksLayout?: "portrait";
   brand: {
     name: string;
     logo: string;

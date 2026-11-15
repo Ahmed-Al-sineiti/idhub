@@ -64,9 +64,9 @@ export default async function SitePage({ params }: Params) {
     <div className="siteRoot" style={siteThemeStyle(site.theme)}>
       <Header site={site} />
       <main>
-        <Hero projects={site.projects} />
+        <Hero projects={site.projects} titleColor={site.hero?.titleColor} scrim={site.hero?.scrim} />
         <About about={site.about} />
-        <Works brand={site.brand} projects={site.projects} />
+        <Works brand={site.brand} projects={site.projects} portrait={site.worksLayout === "portrait"} />
         <Services services={site.services} />
         <Identity identity={site.identity} />
         <Testimonials testimonials={site.testimonials} />

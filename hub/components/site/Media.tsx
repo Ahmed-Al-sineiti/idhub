@@ -22,9 +22,26 @@ export default function Media({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (src && isVideo(src) && videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
+    const video = videoRef.current;
+    if (!src || !isVideo(src) || !video) return;
+
+    const play = () => video.play().catch(() => {});
+
+    // نشغّل الفيديو لما يظهر في الشاشة ونوقفه لما يختفي، علشان ما نستهلكش موارد على الفاضي.
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) play();
+        else video.pause();
+      },
+      { threshold: 0.05 },
+    );
+    io.observe(video);
+    play();
+
+    return () => {
+      io.disconnect();
+      video.pause();
+    };
   }, [src]);
 
   if (src) {

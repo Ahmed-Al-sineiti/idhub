@@ -1,13 +1,21 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, type CSSProperties } from "react";
 import type { Project } from "@/lib/site";
 import Media from "./Media";
 import styles from "./Hero.module.css";
 
 const DURATION = 6000;
 
-export default function Hero({ projects }: { projects: Project[] }) {
+export default function Hero({
+  projects,
+  titleColor,
+  scrim,
+}: {
+  projects: Project[];
+  titleColor?: string;
+  scrim?: string;
+}) {
   const [index, setIndex] = useState(0);
   const [cycle, setCycle] = useState(0);
   const total = projects.length;
@@ -30,13 +38,25 @@ export default function Hero({ projects }: { projects: Project[] }) {
   const pad = (n: number) => String(n).padStart(2, "0");
 
   return (
-    <section id="top" className={styles.hero} aria-roledescription="carousel" aria-label="مشاريع مختارة">
+    <section
+      id="top"
+      className={styles.hero}
+      aria-roledescription="carousel"
+      aria-label="مشاريع مختارة"
+      style={
+        {
+          ...(titleColor ? { "--hero-title": titleColor } : {}),
+          ...(scrim ? { "--hero-scrim": scrim } : {}),
+        } as CSSProperties
+      }
+    >
       {projects.map((p, i) => (
         <div key={p.slug} className={`${styles.slide} ${i === index ? styles.active : ""}`} aria-hidden={i !== index}>
           <Media src={p.image} alt={p.name} className={styles.slideMedia} />
         </div>
       ))}
       <div className={styles.shade} aria-hidden />
+      <div className={styles.scrim} aria-hidden />
       <div className={styles.grid} aria-hidden />
 
       <div className={styles.content} key={index}>
