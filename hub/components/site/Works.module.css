@@ -54,6 +54,33 @@
   transform: translateY(58.3px);
 }
 
+/* نسخة بورتريه: مناسبة للفيديوهات والصور الرأسية */
+.portrait .intro {
+  width: 640px;
+  padding-right: 120px;
+}
+
+.portrait .project {
+  width: 420px;
+  height: min(660px, calc(100vh - 160px));
+}
+
+.portrait .offset {
+  transform: translateY(24px);
+}
+
+.portrait .posterOverlay {
+  display: none;
+}
+
+.portrait .image {
+  opacity: 0.86;
+}
+
+.portrait .project:hover .image {
+  opacity: 0.96;
+}
+
 .media {
   position: absolute;
   inset: 0;
@@ -206,6 +233,17 @@
     aspect-ratio: 814 / 516;
   }
   .offset {
+    transform: none;
+  }
+  .portrait .intro {
+    width: auto;
+    padding: 0;
+  }
+  .portrait .project {
+    height: auto;
+    aspect-ratio: 9 / 13;
+  }
+  .portrait .offset {
     transform: none;
   }
   .name {

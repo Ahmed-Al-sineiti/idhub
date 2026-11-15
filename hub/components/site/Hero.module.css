@@ -34,6 +34,14 @@
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.22) 100%);
 }
 
+/* طبقة إضافية اختيارية للمواقع اللي صورها فاتحة */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-scrim, transparent);
+  pointer-events: none;
+}
+
 .grid {
   position: absolute;
   inset: 0;
@@ -61,7 +69,7 @@
   font-weight: 700;
   font-size: 50.9px;
   line-height: 71.2px;
-  color: var(--accent);
+  color: var(--hero-title, var(--accent));
   text-transform: uppercase;
   text-shadow:
     0 0 34px rgba(0, 0, 0, 0.42),
