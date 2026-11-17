@@ -7,17 +7,25 @@ function isVideo(src: string) {
   return /\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(src);
 }
 
+// كل موقع لديه og.jpg للمشاركة، فنستخدمه كصورة معاينة خفيفة للفيديو قبل تنزيله.
+function videoPoster(src: string) {
+  const match = src.match(/^\/sites\/([^/]+)\//);
+  return match ? `/sites/${match[1]}/og.jpg` : undefined;
+}
+
 // صورة أو فيديو لو المسار موجود، ولو null بيظهر مكان مؤقت مبني بالكود بنفس المقاس.
 export default function Media({
   src,
   alt,
   className,
   label,
+  priority = false,
 }: {
   src: string | null;
   alt: string;
   className?: string;
   label?: string;
+  priority?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -55,12 +63,22 @@ export default function Media({
           muted
           loop
           playsInline
+          poster={videoPoster(src)}
+          preload="metadata"
           aria-label={alt}
         />
       );
     }
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} className={`${styles.img} ${className ?? ""}`} loading="lazy" />;
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className={`${styles.img} ${className ?? ""}`}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
+      />
+    );
   }
   return (
     <div className={`${styles.placeholder} ${className ?? ""}`} role="img" aria-label={alt}>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import type { SiteData } from "@/lib/site";
 import styles from "./Header.module.css";
@@ -9,6 +9,7 @@ export default function Header({ site }: { site: SiteData }) {
   const { brand, nav } = site;
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // الهيدر بيختفي وانت نازل ويرجع وانت طالع
   useEffect(() => {
@@ -24,9 +25,43 @@ export default function Header({ site }: { site: SiteData }) {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    if (!open) return;
+
+    const focusable = () =>
+      Array.from(
+        menuRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      );
+
+    // إبقاء التركيز داخل القائمة المفتوحة حتى لا ينتقل مستخدم الكيبورد إلى محتوى خلفها.
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+
+      const items = focusable();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const first = focusable()[0];
+    first?.focus();
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
   }, [open]);
 
   return (
@@ -53,7 +88,7 @@ export default function Header({ site }: { site: SiteData }) {
         </button>
       </header>
 
-      <div id="site-menu" className={`${styles.menu} ${open ? styles.menuOpen : ""}`} aria-hidden={!open}>
+      <div ref={menuRef} id="site-menu" className={`${styles.menu} ${open ? styles.menuOpen : ""}`} aria-hidden={!open}>
         <button type="button" className={styles.close} onClick={() => setOpen(false)} aria-label="إغلاق القائمة">
           <X size={26} strokeWidth={1.5} />
         </button>

@@ -52,7 +52,7 @@ export default function Hero({
     >
       {projects.map((p, i) => (
         <div key={p.slug} className={`${styles.slide} ${i === index ? styles.active : ""}`} aria-hidden={i !== index}>
-          <Media src={p.image} alt={p.name} className={styles.slideMedia} />
+          <Media src={p.image} alt={p.name} className={styles.slideMedia} priority={i === 0} />
         </div>
       ))}
       <div className={styles.shade} aria-hidden />
